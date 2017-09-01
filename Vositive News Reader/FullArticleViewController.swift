@@ -21,7 +21,15 @@ class FullArticleViewController: UIViewController {
         if let passedUrl = URL(string: url!) {
             webView.loadRequest(URLRequest(url: passedUrl))
         }
+        
     }
-
+    
+    func webViewDidStartLoad(_ : UIWebView) {
+        LoadingOverlay.shared.showOverlay(self.view)
+    }
+    
+    func webViewDidFinishLoad(_ : UIWebView) {
+        LoadingOverlay.shared.hideOverlay()
+    }
 
 }

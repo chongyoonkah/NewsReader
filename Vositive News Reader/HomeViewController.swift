@@ -16,30 +16,37 @@ class HomeViewController: UIViewController {
     var chosenArticleUrl = ""
     var source = "TechCrunch"
     let menuPage = MenuPage()
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "News"
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 150.0
+        setupTableView()
         fetchArticle(fromSource: source)
 
+    }
+    
+    func setupTableView(){
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 150.0
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        refreshControl.tintColor = UIColor.red
+        refreshControl.attributedTitle = NSAttributedString(string: "Loading latest news")
+        refreshControl.addTarget(self, action: #selector(updateNewsData(_:)), for: .valueChanged)
+    }
+    
+    func updateNewsData(_ sender: Any){
+        fetchArticle(fromSource: source)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         chosenArticleUrl = (self.articles?[indexPath.item].url)!
         performSegue(withIdentifier: "FullArticleVC", sender: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let destination = segue.destination as? FullArticleViewController {
-            if chosenArticleUrl.isEmpty {
-                print("failed to pass data")
-            } else {
-                destination.url = chosenArticleUrl
-            }
-        }
     }
     
     func fetchArticle (fromSource provider: String){
@@ -69,6 +76,13 @@ class HomeViewController: UIViewController {
                     }
                 }
                 DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                    let alertController = UIAlertController(title: "Vositive News Reader", message: "Latest news updated", preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
                     self.tableView.reloadData()
                 }
             } catch let error {
@@ -81,7 +95,16 @@ class HomeViewController: UIViewController {
     @IBAction func menuButtonPressed(_ sender: Any) {
         menuPage.loadMenuPage()
         menuPage.mainVC = self
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let destination = segue.destination as? FullArticleViewController {
+            if chosenArticleUrl.isEmpty {
+                print("failed to pass data")
+            } else {
+                destination.url = chosenArticleUrl
+            }
+        }
     }
     
 } //final closing bracket
