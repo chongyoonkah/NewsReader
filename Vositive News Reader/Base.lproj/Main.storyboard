@@ -115,7 +115,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="mT8-7b-uE2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Zkj-uT-cPh">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="organize" id="Zkj-uT-cPh">
                             <connections>
                                 <action selector="menuButtonPressed:" destination="BYZ-38-t0r" id="dhD-mm-ewX"/>
                             </connections>

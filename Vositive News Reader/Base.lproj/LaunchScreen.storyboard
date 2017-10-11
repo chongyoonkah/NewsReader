@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,22 +31,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOSITIVE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaf-4u-Lqt">
-                                <rect key="frame" x="62.5" y="233.5" width="250" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VOSITVE.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kx8-YX-HZo">
+                                <rect key="frame" x="-13" y="133.5" width="400" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="UTP-6e-Z5l"/>
-                                    <constraint firstAttribute="height" constant="200" id="Z81-sE-Hzt"/>
+                                    <constraint firstAttribute="width" constant="400" id="7Bm-Kf-07P"/>
+                                    <constraint firstAttribute="height" constant="400" id="bus-IH-8HC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="45"/>
-                                <color key="textColor" red="1" green="0.14901960780000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="uaf-4u-Lqt" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="BuI-AG-adp"/>
-                            <constraint firstItem="uaf-4u-Lqt" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ev2-r6-5ri"/>
+                            <constraint firstItem="Kx8-YX-HZo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2Rc-gz-1FL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="acl-Dl-O0a" secondAttribute="trailing" constant="10" id="UVH-oe-AN5"/>
+                            <constraint firstItem="Kx8-YX-HZo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Y7i-XD-AUh"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="acl-Dl-O0a" secondAttribute="bottom" constant="10" id="hgl-cF-AVJ"/>
                             <constraint firstItem="acl-Dl-O0a" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="10" id="t7l-cS-FRq"/>
                         </constraints>
@@ -57,4 +54,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="VOSITVE.png" width="500" height="500"/>
+    </resources>
 </document>

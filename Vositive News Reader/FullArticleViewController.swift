@@ -23,7 +23,7 @@ class FullArticleViewController: UIViewController {
         }
         
     }
-    
+
     func webViewDidStartLoad(_ : UIWebView) {
         LoadingOverlay.shared.showOverlay(self.view)
     }

@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "News"
+        self.title = "Vositive"
         setupTableView()
         fetchArticle(fromSource: source)
 
@@ -42,6 +42,7 @@ class HomeViewController: UIViewController {
     
     func updateNewsData(_ sender: Any){
         fetchArticle(fromSource: source)
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -77,12 +78,6 @@ class HomeViewController: UIViewController {
                 }
                 DispatchQueue.main.async {
                     self.refreshControl.endRefreshing()
-                    let alertController = UIAlertController(title: "Vositive News Reader", message: "Latest news updated", preferredStyle: .alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.present(alertController, animated: true, completion: nil)
                     self.tableView.reloadData()
                 }
             } catch let error {
