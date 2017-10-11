@@ -1,5 +1,7 @@
 # NewsReader
 
+![newsreader](https://user-images.githubusercontent.com/17714591/31447190-ac3fda6e-aea1-11e7-8228-86e6d36060ae.png)
+
 Features
 - API connected to https://newsapi.org/
 - Separate API calls for Article details and Image (enable faster loading)
